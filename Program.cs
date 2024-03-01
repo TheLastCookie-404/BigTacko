@@ -3,10 +3,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Пример реализации интерфейса классом
-using System.Reflection.Metadata;
+using System.ComponentModel;
 
-JustClass justClass = new(){Lol = "asd"}; // Создаём экземпляр класса, который реализует интерфейс
+JustClass justClass = new(){Lol = "Message"}; // Создаём экземпляр класса, который реализует интерфейс
 justClass.Print();
+
+// Пример реализации функционала интерфейсом по умолчанию
+Iinterface1 baseClass = new BaseClass();
+baseClass.Print();
 
 // Интерфейс - это ссылочный тип, кторый может определять некий функционал, но не иметь его реализации.
 // Функционал, определёлеый интерфейсом может реализовывать класс или стркутура, и если они реализуют
@@ -66,10 +70,13 @@ class JustClass : Iinterface
 
 interface Iinterface1
 {
-    
+    public void Print()
+    {
+        Console.WriteLine("Default Realization");
+    }
 }
 
-class Base : Iinterface1
+class BaseClass : Iinterface1
 {
 
 }
