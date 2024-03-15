@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BigTacko")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6fdf081fbb009ccbea3e7d0616e74f1e5f800d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f2cfd0d04cf3d6ecefc5f0ae7fd6f816df27446")]
 [assembly: System.Reflection.AssemblyProductAttribute("BigTacko")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BigTacko")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
