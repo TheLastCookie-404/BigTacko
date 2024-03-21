@@ -162,8 +162,28 @@ class ImplementingClass2 : Iinterface2
 
 // Иногда может возникнуть ситуация, когда в дочернем классе нужно изменить реалтзацию
 // унаследованную от родительского класса, это можно сдедать несколькими способами:
-// 1) Переопределение обстрактных методов (это мы уже знаем)
 
+// 1) Переопределение обстрактных методов (это мы уже знаем)
+interface Iinterface3
+{
+    void Print();
+}
+
+class BaseImplementingClass : Iinterface3
+{
+    virtual public void Print()
+    {
+        Console.WriteLine("Dingle-Binglebob is perfect");
+    }
+}
+
+class InheritanceImplementingClass : BaseImplementingClass
+{
+    override public void Print()
+    {
+        Console.WriteLine("Dingle-Binglebob is just good");
+    }
+}
 
 
 
