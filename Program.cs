@@ -29,6 +29,27 @@ implementingClass2.Print();
 // implementingClass2.Print(); //Ошибка CS1061 класс не содержит определения для данного метода
 
 
+// Примеры изменения реализации интерфейсрв в дочерних классах:
+
+// 1) Переопределение абстрактных членов
+BaseImplementingClass baseImplementingClass = new BaseImplementingClass();
+InheritanceImplementingClass inheritanceImplementingClass = new InheritanceImplementingClass();
+baseImplementingClass.Print();
+inheritanceImplementingClass.Print();
+
+// 2) Сокрытие функционала родительского класса дочерним
+BaseImplementingClass1 baseImplementingClass1 = new BaseImplementingClass1();
+InheritanceImplementingClass1 inheritanceImplementingClass1 = new InheritanceImplementingClass1();
+baseImplementingClass1.Print();
+inheritanceImplementingClass1.Print();
+
+// 3) Повторная реадизация интерфейса 
+BaseImplementingClass2 baseImplementingClass2 = new BaseImplementingClass2();
+InheritanceImplementingClass2 inheritanceImplementingClass2 = new InheritanceImplementingClass2();
+baseImplementingClass2.Print();
+inheritanceImplementingClass2.Print();
+
+
 // Интерфейс - это ссылочный тип, кторый может определять некий функционал, но не иметь его реализации.
 // Функционал, определёлеый интерфейсом может реализовывать класс или стркутура, и если они реализуют
 // функционал, то обязоны реализовать весь. Иинтерфейс является контрактом реализации зараенее 
@@ -139,13 +160,13 @@ class ImplementingClass2 : Iinterface2
 // 1) Если класс реализует несколько интерфейсов с
 //    одинаковыми названиями полей или методов
 // 2) Если базовый коласс уже реализовал что-либо,
-//    но в дочернем мы хотим реалтзовать по своем
+//    но в дочернем мы хотим реализовать по своему
 // 3) Если не хотим использовать модификаторы достуа
 //    P.S. В интерфейсе могут быть не только
-//    public модификаторы, если не хотм указывать в
+//    public модификаторы, если не хотм менять в
 //    реализуещем классе модификаторы, на какие
-//    нибудь другие, на мой взгляд 3-й пример
-//    немного бредовый :)
+//    нибудь другие. На мой взгляд 3-й пример
+//    немного бредовый ну или я чего то не понимаю :)
 
 
 
@@ -156,9 +177,11 @@ class ImplementingClass2 : Iinterface2
 // Реализация интерфейсов в базовых и дочкреих классах
 
 // Немного очевидной информации:
-// 1) Если базовый класс реализовал интерфейс, то дочернему его реализовывать не нужно.
+// 1) Если базовый класс реализовал интерфейс, то дочернему его реализовывать не нужно,
+//    Т.К. функционал наследуется
 // 2) При реализации интерфейса каким-либо дочерним классом, учитывается реализация 
-//    функционала родительского класса.
+//    функционала родительского класса, даже если родитель и не собирался реализовывать
+//    данный тинтерфейс. Т.К. функционал наследуется
 
 // Иногда может возникнуть ситуация, когда в дочернем классе нужно изменить реалтзацию
 // унаследованную от родительского класса, это можно сдедать несколькими способами:
@@ -180,6 +203,52 @@ class BaseImplementingClass : Iinterface3
 class InheritanceImplementingClass : BaseImplementingClass
 {
     override public void Print()
+    {
+        Console.WriteLine("Dingle-Binglebob is just good");
+    }
+}
+
+
+// 2) сокрытие (то, что мы не одобряем, ибо небезопасно)
+interface Iinterface4
+{
+    void Print();
+}
+
+class BaseImplementingClass1 : Iinterface4
+{
+    public void Print()
+    {
+        Console.WriteLine("Dingle-Binglebob is perfect");
+    }
+}
+
+class InheritanceImplementingClass1 : BaseImplementingClass1
+{
+    public new void Print()
+    {
+        Console.WriteLine("Dingle-Binglebob is just good");
+    }
+}
+
+
+// 3) Повторная реализация интерфейса в дочернем классе
+interface Iinterface5
+{
+    void Print();
+}
+
+class BaseImplementingClass2 : Iinterface5
+{
+    public void Print()
+    {
+        Console.WriteLine("Dingle-Binglebob is perfect");
+    }
+}
+
+class InheritanceImplementingClass2 : BaseImplementingClass2, Iinterface5
+{
+    public new void Print()
     {
         Console.WriteLine("Dingle-Binglebob is just good");
     }
