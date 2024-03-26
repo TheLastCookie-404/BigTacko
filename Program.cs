@@ -49,6 +49,13 @@ InheritanceImplementingClass2 inheritanceImplementingClass2 = new InheritanceImp
 baseImplementingClass2.Print();
 inheritanceImplementingClass2.Print();
 
+// 4) Повторная реадизация интерфейса 
+BaseImplementingClass3 baseImplementingClass3 = new BaseImplementingClass3();
+Iinterface6 inheritanceImplementingClass3 = new InheritanceImplementingClass3();
+baseImplementingClass3.Print();
+inheritanceImplementingClass3.Print();
+
+
 
 // Интерфейс - это ссылочный тип, кторый может определять некий функционал, но не иметь его реализации.
 // Функционал, определёлеый интерфейсом может реализовывать класс или стркутура, и если они реализуют
@@ -196,7 +203,7 @@ class BaseImplementingClass : Iinterface3
 {
     virtual public void Print()
     {
-        Console.WriteLine("Dingle-Binglebob is perfect");
+        Console.WriteLine("1) Dingle-Binglebob is perfect");
     }
 }
 
@@ -204,7 +211,7 @@ class InheritanceImplementingClass : BaseImplementingClass
 {
     override public void Print()
     {
-        Console.WriteLine("Dingle-Binglebob is just good");
+        Console.WriteLine("1) Dingle-Binglebob is just good");
     }
 }
 
@@ -219,7 +226,7 @@ class BaseImplementingClass1 : Iinterface4
 {
     public void Print()
     {
-        Console.WriteLine("Dingle-Binglebob is perfect");
+        Console.WriteLine("2) Dingle-Binglebob is perfect");
     }
 }
 
@@ -227,12 +234,13 @@ class InheritanceImplementingClass1 : BaseImplementingClass1
 {
     public new void Print()
     {
-        Console.WriteLine("Dingle-Binglebob is just good");
+        Console.WriteLine("2) Dingle-Binglebob is just good");
     }
 }
 
 
 // 3) Повторная реализация интерфейса в дочернем классе
+// P.S. В жанном случае реализация из базового класса пргоигнорируется
 interface Iinterface5
 {
     void Print();
@@ -242,7 +250,7 @@ class BaseImplementingClass2 : Iinterface5
 {
     public void Print()
     {
-        Console.WriteLine("Dingle-Binglebob is perfect");
+        Console.WriteLine("3) Dingle-Binglebob is perfect");
     }
 }
 
@@ -250,9 +258,31 @@ class InheritanceImplementingClass2 : BaseImplementingClass2, Iinterface5
 {
     public new void Print()
     {
-        Console.WriteLine("Dingle-Binglebob is just good");
+        Console.WriteLine("3) Dingle-Binglebob is just good");
     }
 }
 
 
+// 4) Явная реализация интерфейса
+
+interface Iinterface6
+{
+    void Print();
+}
+
+class BaseImplementingClass3 : Iinterface6
+{
+    public void Print()
+    {
+        Console.WriteLine("4) Dingle-Binglebob is perfect");
+    }
+}
+
+class InheritanceImplementingClass3 : BaseImplementingClass3, Iinterface6
+{
+    void Iinterface6.Print()
+    {
+        Console.WriteLine("4) Dingle-Binglebob is just good");
+    }
+}
 
