@@ -56,6 +56,10 @@ baseImplementingClass3.Print();
 inheritanceImplementingClass3.Print();
 
 
+// Пример интерфейсов в обобщениях
+InheritanceInterface person = new Person();
+Idk<InheritanceInterface> idk = new(person);
+
 
 // Интерфейс - это ссылочный тип, кторый может определять некий функционал, но не иметь его реализации.
 // Функционал, определёлеый интерфейсом может реализовывать класс или стркутура, и если они реализуют
@@ -293,4 +297,54 @@ class InheritanceImplementingClass3 : BaseImplementingClass3, Iinterface6
 
 // Наследовани интерфейсов
 
-// Интерфейсы, как и классы могут наследоваться
+// Интерфейсы, как и классы могут наследоваться.
+// Собственно там всё практически так же, как и с наследованием классов,
+// поэтому нет смысла рассказывать об том же, только в плане интерфейсов
+
+interface BaseInterface
+{
+    void PrintAge();
+}
+
+interface InheritanceInterface : BaseInterface
+{
+    void PrintName();
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------Interfaces-in-generics----------------------------------------//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Интерфейсы в обобщениях
+
+// Довольно очевидно, но интерфейся можно использовать в качестве
+// ограничений для обобщений (это полнзно)
+
+class Person : InheritanceInterface
+{
+    public void PrintAge()
+    {
+        Console.Write("19");
+    }
+
+    public void PrintName()
+    {
+        Console.WriteLine("Sergey");
+    }
+}
+
+class Idk<T> where T : InheritanceInterface
+{
+    public Idk()
+    {
+    }
+
+    public Idk(T value)
+    {
+        value.PrintAge();
+        Console.Write(": "); // Просто даоеточие с пробелом между возрастом и именем
+        value.PrintName();
+    }
+}
